@@ -7,7 +7,6 @@ import {
     ExpandMoreOutlined as ArrowBottom,
     NotificationsNoneOutlined as NotificationIcon,
     AccountCircleOutlined as UserIcon,
-    Create as PenIcon
 } from '@material-ui/icons';
 
 import styles from './Header.module.scss'
@@ -31,7 +30,7 @@ const Header: React.FC = () => {
                 </div>
 
                 <Button className={styles.penButton} variant='contained'>
-                    <PenIcon />
+                    Новая запись
                 </Button>
             </div>
             <div className='d-flex align-center'>
@@ -41,7 +40,7 @@ const Header: React.FC = () => {
                 <IconButton>
                     <NotificationIcon />
                 </IconButton>
-                <Avatar className="ml-15" alt="Avatar" src=''/>
+                <Avatar className={styles.avatar} alt="Avatar" src=''/>
                 <Button>
                     <ArrowBottom />
                 </Button>
