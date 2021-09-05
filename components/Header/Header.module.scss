@@ -1,9 +1,10 @@
 .root {
   position: fixed;
-  width: 100%;
   display: flex;
+  width: 100%;
+  align-items: center;
   justify-content: space-between;
-  background-color: #fff4e2 !important;
+  background-color: #e2ffe7 !important;
   padding: 0 35px 0 10px;
   height: 60px;
   margin-bottom: 14px;
@@ -24,10 +25,10 @@
 }
 
 .penButton {
+  min-width: 40px !important;
   text-transform: inherit !important;
   font-size: 16px !important;
   letter-spacing: 0 !important;
-  min-width: 40px !important;
 }
 
 .searchBlock {
@@ -43,14 +44,15 @@
   }
 
   input {
-    border: 1px solid transparent;
-    background-color: rgba(0, 0, 0, 0.05);
-    border-radius: 10px;
     width: 100%;
-    height: 38px;
+    height: 40px;
+    border: 0;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.05);
     font-size: 16px;
     padding-left: 40px;
     transition: all 0.1s ease-in-out;
+    border: 1px solid transparent;
 
     &:hover,
     &:focus {
@@ -58,5 +60,22 @@
       border-color: darken(#fff4e2, 15%);
       box-shadow: 0 0 0 3px rgb(229 160 64 / 12%);
     }
+  }
+}
+
+.loginButton {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-left: 15px;
+
+  svg {
+    margin-right: 10px;
+  }
+
+  &:hover {
+    color: #29b241;
   }
 }
