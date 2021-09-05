@@ -13,6 +13,9 @@
 # next.js
 /.next/
 /out/
+/self/
+/workspace.xml
+/httpRequests/
 
 # production
 /build
