@@ -1,38 +1,42 @@
-import React from "react";
-import { Paper, Button, IconButton, Avatar } from '@material-ui/core';
+import React from 'react';
+import Link from 'next/link';
+import { Button } from '@material-ui/core';
 import {
     WhatshotOutlined as FireIcon,
     SmsOutlined as MessageIcon,
-    TrendingUpOutlined as TrandingIcon,
+    TrendingUpOutlined as TrendingIcon,
     FormatListBulletedOutlined as ListIcon,
-    Menu as MenuIcon,
-    ExpandMoreOutlined as ArrowBottom,
-    NotificationsNoneOutlined as NotificationIcon,
-    AccountCircleOutlined as UserIcon,
-    Create as PenIcon
 } from '@material-ui/icons';
 
-import styles from './LeftMenu.module.scss'
+import styles from './LeftMenu.module.scss';
+import { useRouter } from 'next/router';
 
-const LeftMenu: React.FC = () => {
+const menu = [
+    { text: 'Лента', icon: <FireIcon />, path: '/' },
+    { text: 'Сообщения', icon: <MessageIcon />, path: '/messages' },
+    { text: 'Рейтинг RJ', icon: <TrendingIcon />, path: '/rating' },
+    { text: 'Подписки', icon: <ListIcon />, path: '/follows' },
+];
+
+export const LeftMenu: React.FC = () => {
+    const router = useRouter();
+
     return (
         <div className={styles.menu}>
             <ul>
-                <li>
-                    <Button><FireIcon /> Лента</Button>
-                </li>
-                <li>
-                    <Button><MessageIcon /> Сообщения</Button>
-                </li>
-                <li>
-                    <Button><TrandingIcon /> Рейтинг TJ</Button>
-                </li>
-                <li>
-                    <Button><ListIcon /> Подписки</Button>
-                </li>
+                {menu.map((obj) => (
+                    <li key={obj.path}>
+                        <Link href={obj.path}>
+                            <a>
+                                <Button variant={router.asPath === obj.path ? 'contained' : 'text'}>
+                                    {obj.icon}
+                                    {obj.text}
+                                </Button>
+                            </a>
+                        </Link>
+                    </li>
+                ))}
             </ul>
         </div>
     );
 };
-
-export default LeftMenu;
