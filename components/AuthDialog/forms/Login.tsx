@@ -3,6 +3,7 @@ import { Button } from '@material-ui/core';
 import { useForm, FormProvider } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { LoginFormSchema } from '../../../utils/validations';
+// @ts-ignore
 import { FormField } from '../../FormField';
 
 interface LoginFormProps {

@@ -9,7 +9,7 @@ interface WriteFormProps {
     title?: string;
 }
 
-export const Index: React.FC<WriteFormProps> = ({ title }) => {
+export const WriteForm: React.FC<WriteFormProps> = ({ title }) => {
     return (
         <div>
             <Input classes={{ root: styles.titleField }} placeholder="Заголовок" defaultValue={title} />
