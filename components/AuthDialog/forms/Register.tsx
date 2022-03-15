@@ -9,6 +9,7 @@ import {CreateUserDto} from "../../../utils/api/types";
 import {UserApi} from "../../../utils/api";
 import {setCookie} from "nookies";
 import Alert from "@material-ui/lab/Alert";
+import {useAppDispatch} from "../../../redux/hooks";
 
 interface LoginFormProps {
     onOpenRegister: () => void;
@@ -16,6 +17,7 @@ interface LoginFormProps {
 }
 
 export const RegisterForm: React.FC<LoginFormProps> = ({ onOpenRegister, onOpenLogin }) => {
+    const dispatch = useAppDispatch()
     const [errorMessage, setErrorMessage] = useState('')
     const form = useForm({
         mode: 'onChange',
