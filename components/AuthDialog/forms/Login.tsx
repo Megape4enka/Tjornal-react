@@ -6,7 +6,7 @@ import { LoginFormSchema } from '../../../utils/validations';
 import { FormField } from '../../FormField';
 import {LoginDto} from "../../../utils/api/types";
 import Alert from "@material-ui/lab/Alert";
-import {UserApi} from "../../../utils/api";
+import {UserApi} from "../../../utils/api/user";
 import {setCookie} from "nookies";
 import {useAppDispatch} from "../../../redux/hooks";
 import {setUserData} from "../../../redux/slices/user";
@@ -40,8 +40,6 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onOpenRegister }) => {
             }
         }
     }
-
-    console.log(form.formState.errors);
 
     return (
         <div>

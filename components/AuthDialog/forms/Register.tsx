@@ -6,7 +6,7 @@ import { RegisterFormSchema } from '../../../utils/validations';
 // @ts-ignore
 import { FormField } from '../../FormField';
 import {CreateUserDto} from "../../../utils/api/types";
-import {UserApi} from "../../../utils/api";
+import {UserApi} from "../../../utils/api/user";
 import {setCookie} from "nookies";
 import Alert from "@material-ui/lab/Alert";
 import {useAppDispatch} from "../../../redux/hooks";

@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import {ResponseUser} from "../../utils/api/types";
 import {RootState} from "../store";
-import {use} from "ast-types";
 import {HYDRATE} from "next-redux-wrapper";
 
 export interface UserState {

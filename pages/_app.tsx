@@ -7,9 +7,11 @@ import { theme } from '../theme';
 
 import '../styles/globals.scss';
 import 'macro-css';
-import {Provider} from "react-redux";
-import {store, wrapper} from "../redux/store";
+import { wrapper } from "../redux/store";
 import {AppProps} from "next/app";
+import {parseCookies} from "nookies";
+import {UserApi} from "../utils/api/user";
+import {setUserData} from "../redux/slices/user";
 
 function App({ Component, pageProps }: AppProps) {
     return (
@@ -31,5 +33,21 @@ function App({ Component, pageProps }: AppProps) {
         </>
     );
 }
+
+App.getInitialProps = wrapper.getInitialAppProps(
+    (store) => async ({
+        ctx, Component
+    }) => {
+    try {
+        const {authToken} = parseCookies(ctx)
+        const userData = await UserApi.getMe(authToken)
+        store.dispatch(setUserData(userData))
+    } catch (err) {
+        console.log(err)
+    }
+    return {pageProps: {
+        ...(Component.getInitialProps ? await Component.getInitialProps({...ctx, store}): {})
+    }}
+})
 
 export default wrapper.withRedux(App);
