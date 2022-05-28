@@ -10,6 +10,7 @@ import {UserApi} from "../../../utils/api/user";
 import {setCookie} from "nookies";
 import {useAppDispatch} from "../../../redux/hooks";
 import {setUserData} from "../../../redux/slices/user";
+import {Api} from "../../../utils/api";
 
 interface LoginFormProps {
     onOpenRegister: () => void;
@@ -25,9 +26,8 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onOpenRegister }) => {
 
     const onSubmit = async (dto: LoginDto) => {
         try {
-            const data = await UserApi.login(dto)
-            console.log(data)
-            setCookie(null, 'authToken', data.token, {
+            const data = await Api().user.login(dto)
+            setCookie(null, 'rtoken', data.token, {
                 maxAge: 30 * 24 * 60 * 60,
                 path: '/',
             })
